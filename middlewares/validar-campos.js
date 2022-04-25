@@ -1,7 +1,7 @@
 const { response } = require("express");  //solo para tipado
 const { validationResult } = require("express-validator");
 
-const validarCampos = (( req, resp= response, next )=>{
+const validarCampos = (( req, res= response, next )=>{
 
     const errors = validationResult( req );
 
