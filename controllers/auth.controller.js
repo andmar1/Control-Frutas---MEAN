@@ -1,19 +1,11 @@
 //response para tipado
 const { response } = require('express');
 
-const { validationResult } = require('express-validator')
+const Usuario = require('../models/Usuario')
+
 
 const crearUsuario = ( req, res = response ) =>{
 
-    const errors = validationResult( req );
-
-    if( !errors.isEmpty() ){
-        return res.status(400).json({
-            ok:false,
-            msg:errors.mapped()
-        });
-    }
-    
     // Creacion del usuario 
     const { email, name, password } = req.body;   //destructuring
     console.log( email, name, password )
@@ -26,15 +18,6 @@ const crearUsuario = ( req, res = response ) =>{
 
 
 const loginUsuario = ( req, res=response ) =>{
-
-    const errors = validationResult( req );
-
-    if (!errors.isEmpty()) {             //validar error 
-        return res.status(400).json({   //respuesta de status (400)
-            ok:false,                   //response false
-            msg:errors.mapped()         //ver errores mostrados
-        })
-    }
 
     return res.json({
         ok:true, 
