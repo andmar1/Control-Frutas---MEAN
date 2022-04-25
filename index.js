@@ -6,6 +6,7 @@ require('dotenv').config();
 // crear el servidor de aplicacion de express 
 const app = express()
 
+//Creacion de la carpeta puclica
 app.use(express.static('public'))    //directorio de carpeta public
 
 //lectura del body
